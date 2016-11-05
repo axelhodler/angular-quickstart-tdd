@@ -5,12 +5,9 @@ import {Hero} from './hero';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {By}           from '@angular/platform-browser';
 
-function querySecondHeading(fixture: any) {
-  return fixture.debugElement.query(By.css('h2')).nativeElement;
-}
-
 describe('AppComponent', function () {
   let firstHeading: any;
+  let secondHeading: any;
   let comp: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
 
@@ -25,6 +22,7 @@ describe('AppComponent', function () {
     fixture = TestBed.createComponent(AppComponent);
     comp = fixture.componentInstance;
     firstHeading = fixture.debugElement.query(By.css('h1')).nativeElement;
+    secondHeading = fixture.debugElement.query(By.css('h2')).nativeElement;
     fixture.detectChanges();
   });
 
@@ -35,8 +33,7 @@ describe('AppComponent', function () {
 
   it('gives the hero a name', () => {
     expect(comp.hero.name).toBe('Windstorm');
-    const h2 = querySecondHeading(fixture);
-    expect(h2.innerText).toBe('Windstorm details!');
+    expect(secondHeading.innerText).toBe('Windstorm details!');
   });
 
   it('displays h2 after h1', () => {
@@ -44,16 +41,15 @@ describe('AppComponent', function () {
   });
 
   it('displays hero id and name', () => {
-    expect(querySecondHeading(fixture).nextElementSibling.textContent).toContain('id:');
-    expect(querySecondHeading(fixture).nextElementSibling.lastChild.textContent).toContain('1');
+    expect(secondHeading.nextElementSibling.textContent).toContain('id:');
+    expect(secondHeading.nextElementSibling.lastChild.textContent).toContain('1');
   });
 
   xit('does not hardcode the values in the template', () => {
     comp.hero.name = 'Stormwind';
     comp.title = 'Heldensammlung';
-    const h2 = querySecondHeading(fixture);
     expect(firstHeading.innerText).toMatch(/Heldensammlung/i);
-    expect(h2.innerText).toBe('Stormwind details!')
+    expect(secondHeading.innerText).toBe('Stormwind details!')
   });
 
   describe('Hero', () => {
