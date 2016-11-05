@@ -5,6 +5,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By }           from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
+function querySecondHeading(fixture: any) {
+  return fixture.debugElement.query(By.css('h2')).nativeElement;
+}
+
 describe('AppComponent', function () {
   let de: DebugElement;
   let comp: AppComponent;
@@ -32,7 +36,7 @@ describe('AppComponent', function () {
 
   it('gives the hero a name', () => {
     expect(comp.hero).toBe('Windstorm');
-    const h2 = fixture.debugElement.query(By.css('h2')).nativeElement;
+    const h2 = querySecondHeading(fixture);
     expect(h2.innerText).toBe('Windstorm details!');
   });
 
@@ -40,7 +44,7 @@ describe('AppComponent', function () {
     comp.hero = 'Stormwind';
     comp.title = 'Heldensammlung';
     const h1 = de.nativeElement;
-    const h2 = fixture.debugElement.query(By.css('h2')).nativeElement;
+    const h2 = querySecondHeading(fixture);
     expect(h1.innerText).toMatch(/Heldensammlung/i);
     expect(h2.innerText).toBe('Stormwind details!')
   })
