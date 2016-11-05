@@ -1,5 +1,6 @@
 /* tslint:disable:no-unused-variable */
 import { AppComponent } from './app.component';
+import { Hero } from './hero';
 
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By }           from '@angular/platform-browser';
@@ -51,5 +52,14 @@ describe('AppComponent', function () {
     const h2 = querySecondHeading(fixture);
     expect(h1.innerText).toMatch(/Heldensammlung/i);
     expect(h2.innerText).toBe('Stormwind details!')
+  });
+
+  describe('Hero', () => {
+    it('can be created', () => {
+      const hero: Hero = {
+        id: 1,
+        name: 'Peter'
+      }
+    });
   })
 });
