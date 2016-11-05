@@ -21,10 +21,10 @@ describe('AppComponent', function () {
     fixture = TestBed.createComponent(AppComponent);
     comp = fixture.componentInstance;
     de = fixture.debugElement.query(By.css('h1'));
+    fixture.detectChanges();
   });
 
   it('sets the title to Tour of Heroes', () => {
-    fixture.detectChanges();
     const h1 = de.nativeElement;
     expect(h1.innerText).toMatch(/Tour of Heroes/i);
     expect(comp.title).toBe('Tour of Heroes');
