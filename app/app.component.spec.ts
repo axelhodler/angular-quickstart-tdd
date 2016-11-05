@@ -36,7 +36,7 @@ describe('AppComponent', function () {
   });
 
   it('gives the hero a name', () => {
-    expect(comp.hero).toBe('Windstorm');
+    expect(comp.hero.name).toBe('Windstorm');
     const h2 = querySecondHeading(fixture);
     expect(h2.innerText).toBe('Windstorm details!');
   });
