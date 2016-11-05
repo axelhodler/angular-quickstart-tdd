@@ -1,10 +1,10 @@
 /* tslint:disable:no-unused-variable */
-import { AppComponent } from './app.component';
-import { Hero } from './hero';
+import {AppComponent} from './app.component';
+import {Hero} from './hero';
 
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By }           from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {By}           from '@angular/platform-browser';
+import {DebugElement} from '@angular/core';
 
 function querySecondHeading(fixture: any) {
   return fixture.debugElement.query(By.css('h2')).nativeElement;
@@ -16,10 +16,10 @@ describe('AppComponent', function () {
   let fixture: ComponentFixture<AppComponent>;
 
   beforeEach(async(() => {
-   TestBed.configureTestingModule({
-      declarations: [ AppComponent ]
+    TestBed.configureTestingModule({
+      declarations: [AppComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -43,6 +43,12 @@ describe('AppComponent', function () {
 
   it('displays h2 after h1', () => {
     expect(firstHeading.nativeElement.nextElementSibling.textContent).toBe('Windstorm details!');
+  });
+
+  it('displays hero id and name', () => {
+    expect(querySecondHeading(fixture).nextElementSibling.textContent).toContain('id:');
+    console.log(querySecondHeading(fixture).nextElementSibling.lastChild);
+    expect(querySecondHeading(fixture).nextElementSibling.lastChild.textContent).toContain('1');
   });
 
   xit('does not hardcode the values in the template', () => {
