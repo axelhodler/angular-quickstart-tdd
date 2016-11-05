@@ -42,11 +42,11 @@ describe('AppComponent', function () {
   });
 
   it('displays h2 after h1', () => {
-    expect(fixture.debugElement.nativeElement.lastChild.textContent).toBe('Windstorm details!');
+    expect(firstHeading.nativeElement.nextSibling.textContent).toBe('Windstorm details!');
   });
 
   xit('does not hardcode the values in the template', () => {
-    comp.hero = 'Stormwind';
+    comp.hero.name = 'Stormwind';
     comp.title = 'Heldensammlung';
     const h1 = firstHeading.nativeElement;
     const h2 = querySecondHeading(fixture);
