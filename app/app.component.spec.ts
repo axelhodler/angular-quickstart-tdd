@@ -10,7 +10,7 @@ function querySecondHeading(fixture: any) {
 }
 
 describe('AppComponent', function () {
-  let de: DebugElement;
+  let firstHeading: DebugElement;
   let comp: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
 
@@ -24,12 +24,12 @@ describe('AppComponent', function () {
   beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);
     comp = fixture.componentInstance;
-    de = fixture.debugElement.query(By.css('h1'));
+    firstHeading = fixture.debugElement.query(By.css('h1'));
     fixture.detectChanges();
   });
 
   it('sets the title to Tour of Heroes', () => {
-    const h1 = de.nativeElement;
+    const h1 = firstHeading.nativeElement;
     expect(h1.innerText).toMatch(/Tour of Heroes/i);
     expect(comp.title).toBe('Tour of Heroes');
   });
@@ -43,7 +43,7 @@ describe('AppComponent', function () {
   xit('does not hardcode the values in the template', () => {
     comp.hero = 'Stormwind';
     comp.title = 'Heldensammlung';
-    const h1 = de.nativeElement;
+    const h1 = firstHeading.nativeElement;
     const h2 = querySecondHeading(fixture);
     expect(h1.innerText).toMatch(/Heldensammlung/i);
     expect(h2.innerText).toBe('Stormwind details!')
