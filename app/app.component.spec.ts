@@ -55,6 +55,12 @@ describe('AppComponent', function () {
     expect(heroIdElement.nextElementSibling.lastElementChild.outerHTML).toContain('Stormwind');
   });
 
+  it('lists ten heroes with name and id', () => {
+    let heroList = secondHeading.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling;
+    expect(heroList.childElementCount).toBe(10);
+    expect(heroList.firstElementChild.textContent).toContain('11 Mr. Nice');
+  });
+
   describe('Hero', () => {
     it('can be created', () => {
       const hero: Hero = {
