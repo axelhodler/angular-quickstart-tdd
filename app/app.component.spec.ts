@@ -1,5 +1,6 @@
 /* tslint:disable:no-unused-variable */
 import {AppComponent} from './app.component';
+import {FormsModule}   from '@angular/forms';
 import {Hero} from './hero';
 
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
@@ -13,7 +14,8 @@ describe('AppComponent', function () {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AppComponent]
+      declarations: [AppComponent],
+      imports: [ FormsModule ]
     })
       .compileComponents();
   }));
@@ -44,15 +46,13 @@ describe('AppComponent', function () {
     const heroIdElement = secondHeading.nextElementSibling;
     expect(heroIdElement.textContent).toContain('id:');
     expect(heroIdElement.lastChild.textContent).toBe('1');
-    expect(heroIdElement.nextElementSibling.textContent).toContain('name:');
-    expect(heroIdElement.nextElementSibling.lastChild.textContent).toBe('Windstorm');
   });
 
-  xit('does not hardcode the values in the template', () => {
+  it('can edit the heroes name', () => {
+    let heroIdElement = secondHeading.nextElementSibling;
     comp.hero.name = 'Stormwind';
-    comp.title = 'Heldensammlung';
-    expect(firstHeading.innerText).toMatch(/Heldensammlung/i);
-    expect(secondHeading.innerText).toBe('Stormwind details!')
+    fixture.detectChanges();
+    expect(heroIdElement.nextElementSibling.lastElementChild.outerHTML).toContain('Stormwind');
   });
 
   describe('Hero', () => {
