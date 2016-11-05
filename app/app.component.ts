@@ -3,10 +3,9 @@ import { Component } from '@angular/core';
 import { Hero } from './hero';
 
 @Component({
+  moduleId: module.id,
   selector: 'my-app',
-  template: `
-    <h1>{{title}}</h1><h2>{{hero.name}} details!</h2>
-  `
+  templateUrl: 'app.component.html'
 })
 export class AppComponent {
   title = 'Tour of Heroes';

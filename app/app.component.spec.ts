@@ -42,7 +42,7 @@ describe('AppComponent', function () {
   });
 
   it('displays h2 after h1', () => {
-    expect(firstHeading.nativeElement.nextSibling.textContent).toBe('Windstorm details!');
+    expect(firstHeading.nativeElement.nextElementSibling.textContent).toBe('Windstorm details!');
   });
 
   xit('does not hardcode the values in the template', () => {
