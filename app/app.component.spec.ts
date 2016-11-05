@@ -28,5 +28,11 @@ describe('AppComponent', function () {
     const h1 = de.nativeElement;
     expect(h1.innerText).toMatch(/Tour of Heroes/i);
     expect(comp.title).toBe('Tour of Heroes');
+  });
+
+  it('gives the hero a name', () => {
+    expect(comp.hero).toBe('Windstorm');
+    const h2 = fixture.debugElement.query(By.css('h2')).nativeElement;
+    expect(h2.innerText).toBe('Windstorm details!');
   })
 });
