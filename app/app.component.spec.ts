@@ -23,15 +23,10 @@ describe('AppComponent', function () {
     de = fixture.debugElement.query(By.css('h1'));
   });
 
-  it('should create component', () => expect(comp).toBeDefined() );
-
-  it('says something about World', () => {
+  it('sets the title to Tour of Heroes', () => {
     fixture.detectChanges();
     const h1 = de.nativeElement;
-    expect(h1.innerText).toMatch(/world/i);
-  });
-
-  it('sets the title to Tour of Heroes', () => {
+    expect(h1.innerText).toMatch(/Tour of Heroes/i);
     expect(comp.title).toBe('Tour of Heroes');
   })
 });
