@@ -34,5 +34,14 @@ describe('AppComponent', function () {
     expect(comp.hero).toBe('Windstorm');
     const h2 = fixture.debugElement.query(By.css('h2')).nativeElement;
     expect(h2.innerText).toBe('Windstorm details!');
+  });
+
+  xit('does not hardcode the values in the template', () => {
+    comp.hero = 'Stormwind';
+    comp.title = 'Heldensammlung';
+    const h1 = de.nativeElement;
+    const h2 = fixture.debugElement.query(By.css('h2')).nativeElement;
+    expect(h1.innerText).toMatch(/Heldensammlung/i);
+    expect(h2.innerText).toBe('Stormwind details!')
   })
 });
