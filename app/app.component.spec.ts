@@ -30,4 +30,8 @@ describe('AppComponent', function () {
     const h1 = de.nativeElement;
     expect(h1.innerText).toMatch(/world/i);
   });
+
+  it('sets the title to Tour of Heroes', () => {
+    expect(comp.title).toBe('Tour of Heroes');
+  })
 });
