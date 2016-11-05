@@ -4,14 +4,13 @@ import {Hero} from './hero';
 
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {By}           from '@angular/platform-browser';
-import {DebugElement} from '@angular/core';
 
 function querySecondHeading(fixture: any) {
   return fixture.debugElement.query(By.css('h2')).nativeElement;
 }
 
 describe('AppComponent', function () {
-  let firstHeading: DebugElement;
+  let firstHeading: any;
   let comp: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
 
@@ -25,13 +24,12 @@ describe('AppComponent', function () {
   beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);
     comp = fixture.componentInstance;
-    firstHeading = fixture.debugElement.query(By.css('h1'));
+    firstHeading = fixture.debugElement.query(By.css('h1')).nativeElement;
     fixture.detectChanges();
   });
 
   it('sets the title to Tour of Heroes', () => {
-    const h1 = firstHeading.nativeElement;
-    expect(h1.innerText).toMatch(/Tour of Heroes/i);
+    expect(firstHeading.innerText).toMatch(/Tour of Heroes/i);
     expect(comp.title).toBe('Tour of Heroes');
   });
 
@@ -42,21 +40,19 @@ describe('AppComponent', function () {
   });
 
   it('displays h2 after h1', () => {
-    expect(firstHeading.nativeElement.nextElementSibling.textContent).toBe('Windstorm details!');
+    expect(firstHeading.nextElementSibling.textContent).toBe('Windstorm details!');
   });
 
   it('displays hero id and name', () => {
     expect(querySecondHeading(fixture).nextElementSibling.textContent).toContain('id:');
-    console.log(querySecondHeading(fixture).nextElementSibling.lastChild);
     expect(querySecondHeading(fixture).nextElementSibling.lastChild.textContent).toContain('1');
   });
 
   xit('does not hardcode the values in the template', () => {
     comp.hero.name = 'Stormwind';
     comp.title = 'Heldensammlung';
-    const h1 = firstHeading.nativeElement;
     const h2 = querySecondHeading(fixture);
-    expect(h1.innerText).toMatch(/Heldensammlung/i);
+    expect(firstHeading.innerText).toMatch(/Heldensammlung/i);
     expect(h2.innerText).toBe('Stormwind details!')
   });
 
