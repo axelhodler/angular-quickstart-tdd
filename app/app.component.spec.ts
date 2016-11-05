@@ -41,8 +41,11 @@ describe('AppComponent', function () {
   });
 
   it('displays hero id and name', () => {
-    expect(secondHeading.nextElementSibling.textContent).toContain('id:');
-    expect(secondHeading.nextElementSibling.lastChild.textContent).toContain('1');
+    const heroIdElement = secondHeading.nextElementSibling;
+    expect(heroIdElement.textContent).toContain('id:');
+    expect(heroIdElement.lastChild.textContent).toBe('1');
+    expect(heroIdElement.nextElementSibling.textContent).toContain('name:');
+    expect(heroIdElement.nextElementSibling.lastChild.textContent).toBe('Windstorm');
   });
 
   xit('does not hardcode the values in the template', () => {
