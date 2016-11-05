@@ -40,6 +40,10 @@ describe('AppComponent', function () {
     expect(h2.innerText).toBe('Windstorm details!');
   });
 
+  it('displays h2 after h1', () => {
+    expect(fixture.debugElement.nativeElement.lastChild.textContent).toBe('Windstorm details!');
+  });
+
   xit('does not hardcode the values in the template', () => {
     comp.hero = 'Stormwind';
     comp.title = 'Heldensammlung';
