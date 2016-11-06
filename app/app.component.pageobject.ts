@@ -26,6 +26,10 @@ export class AppComponentPageObject {
     return this.heroList().firstElementChild.textContent;
   }
 
+  firstHero() {
+    return this.heroList().firstElementChild;
+  }
+
   selectFirstHero() {
     this.heroList().firstElementChild.click();
     this.contents.detectChanges();

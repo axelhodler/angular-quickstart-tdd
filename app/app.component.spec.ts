@@ -75,12 +75,12 @@ describe('AppComponent', function () {
   });
 
   it('uses the default styling for unselected heroes', () => {
-    expect(pageObject.heroList().firstElementChild.classList).not.toContain('selected');
+    expect(pageObject.firstHero().classList).not.toContain('selected');
   });
 
   it('uses the selected class for selected heroes', () => {
     pageObject.selectFirstHero();
-    expect(pageObject.heroList().firstElementChild.classList).toContain('selected');
+    expect(pageObject.firstHero().classList).toContain('selected');
   });
 
   describe('Hero', () => {
