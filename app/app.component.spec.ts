@@ -39,7 +39,7 @@ describe('AppComponent', function () {
   });
 
   it('displays h2 after h1', () => {
-    expect(pageObject.firstHeading().nextElementSibling.firstElementChild.textContent).toBe('Windstorm details!');
+    expect(pageObject.headingAfterFirstHeading().textContent).toBe('Windstorm details!');
   });
 
   it('displays hero id and name', () => {

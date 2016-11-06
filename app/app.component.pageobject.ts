@@ -17,4 +17,8 @@ export class AppComponentPageObject {
   heroList() {
     return this.contents.debugElement.query(By.css('#herolist')).nativeElement;
   }
+
+  headingAfterFirstHeading() {
+    return this.firstHeading().nextElementSibling.firstElementChild;
+  }
 }
