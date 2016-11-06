@@ -15,6 +15,6 @@ export class AppComponentPageObject {
   }
 
   heroList() {
-    return this.secondHeading().nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling;
+    return this.contents.debugElement.query(By.css('#herolist')).nativeElement;
   }
 }
