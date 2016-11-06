@@ -56,7 +56,7 @@ describe('AppComponent', function () {
   });
 
   it('lists ten heroes with name and id', () => {
-    let heroList = pageObject.secondHeading().nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling;
+    let heroList = pageObject.heroList();
     expect(heroList.childElementCount).toBe(10);
     expect(heroList.firstElementChild.textContent).toContain('11 Mr. Nice');
   });

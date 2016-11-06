@@ -13,4 +13,8 @@ export class AppComponentPageObject {
   secondHeading() {
     return this.contents.debugElement.query(By.css('h2')).nativeElement;
   }
+
+  heroList() {
+    return this.secondHeading().nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling;
+  }
 }
