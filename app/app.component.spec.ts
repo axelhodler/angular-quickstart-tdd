@@ -42,12 +42,6 @@ describe('AppComponent', function () {
     expect(pageObject.headingAfterFirstHeading().textContent).toBe('Windstorm details!');
   });
 
-  it('displays hero id and name', () => {
-    const heroIdElement = pageObject.secondHeading().nextElementSibling;
-    expect(heroIdElement.textContent).toContain('id:');
-    expect(heroIdElement.lastChild.textContent).toBe('1');
-  });
-
   it('can edit the heroes name', () => {
     let heroIdElement = pageObject.secondHeading().nextElementSibling;
     comp.selectedHero.name = 'Stormwind';
@@ -70,6 +64,9 @@ describe('AppComponent', function () {
   it('displays the hero details of the selected hero', () => {
     pageObject.heroList().firstElementChild.nextElementSibling.click();
     fixture.detectChanges();
+    const heroIdElement = pageObject.secondHeading().nextElementSibling;
+    expect(heroIdElement.textContent).toContain('id:');
+    expect(heroIdElement.lastChild.textContent).toBe('12');
     expect(pageObject.secondHeading().textContent).toBe('Narco details!');
   });
 
