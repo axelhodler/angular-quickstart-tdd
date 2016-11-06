@@ -3,7 +3,7 @@ import {Component} from '@angular/core';
 import {Hero} from './hero';
 
 const HEROES: Hero[] = [
-  {id: 11, name: 'Mr. Nice'},
+  {id: 1, name: 'Windstorm'},
   {id: 12, name: 'Narco'},
   {id: 13, name: 'Bombasto'},
   {id: 14, name: 'Celeritas'},

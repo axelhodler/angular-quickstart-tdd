@@ -21,4 +21,8 @@ export class AppComponentPageObject {
   headingAfterFirstHeading() {
     return this.firstHeading().nextElementSibling.firstElementChild;
   }
+
+  selectFirstHero() {
+    pageObject.heroList().firstElementChild.click();
+  }
 }

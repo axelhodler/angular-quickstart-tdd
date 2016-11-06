@@ -58,7 +58,7 @@ describe('AppComponent', function () {
   it('lists ten heroes with name and id', () => {
     let heroList = pageObject.heroList();
     expect(heroList.childElementCount).toBe(10);
-    expect(heroList.firstElementChild.textContent).toContain('11 Mr. Nice');
+    expect(heroList.firstElementChild.textContent).toContain('1 Windstorm');
   });
 
   it('displays hero details only if a hero is selected', () => {
