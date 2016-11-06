@@ -22,7 +22,12 @@ export class AppComponentPageObject {
     return this.firstHeading().nextElementSibling.firstElementChild;
   }
 
+  firstHeroTextContent() {
+    return this.heroList().firstElementChild.textContent;
+  }
+
   selectFirstHero() {
-    pageObject.heroList().firstElementChild.click();
+    this.heroList().firstElementChild.click();
+    this.contents.detectChanges();
   }
 }

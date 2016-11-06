@@ -34,25 +34,29 @@ describe('AppComponent', function () {
   });
 
   it('gives the hero a name', () => {
+    pageObject.selectFirstHero();
     expect(comp.selectedHero.name).toBe('Windstorm');
     expect(pageObject.secondHeading().innerText).toBe('Windstorm details!');
   });
 
   it('displays h2 after h1', () => {
+    pageObject.selectFirstHero();
     expect(pageObject.headingAfterFirstHeading().textContent).toBe('Windstorm details!');
   });
 
   it('can edit the heroes name', () => {
+    pageObject.selectFirstHero();
     let heroIdElement = pageObject.secondHeading().nextElementSibling;
     comp.selectedHero.name = 'Stormwind';
     fixture.detectChanges();
     expect(heroIdElement.nextElementSibling.lastElementChild.outerHTML).toContain('Stormwind');
+    comp.selectedHero.name = 'Windstorm'; // since change to Stormwind changes the datastructure of heroes
   });
 
   it('lists ten heroes with name and id', () => {
     let heroList = pageObject.heroList();
     expect(heroList.childElementCount).toBe(10);
-    expect(heroList.firstElementChild.textContent).toContain('1 Windstorm');
+    expect(pageObject.firstHeroTextContent()).toContain('1 Windstorm');
   });
 
   it('displays hero details only if a hero is selected', () => {
