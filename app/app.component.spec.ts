@@ -67,6 +67,12 @@ describe('AppComponent', function () {
     expect(pageObject.secondHeading().innerText).toBe('My Heroes');
   });
 
+  it('displays the hero details of the selected hero', () => {
+    pageObject.heroList().firstElementChild.nextElementSibling.click();
+    fixture.detectChanges();
+    expect(pageObject.secondHeading().textContent).toBe('Narco details!');
+  });
+
   describe('Hero', () => {
     it('can be created', () => {
       const hero: Hero = {
