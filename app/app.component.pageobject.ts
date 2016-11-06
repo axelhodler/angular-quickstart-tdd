@@ -9,4 +9,8 @@ export class AppComponentPageObject {
   firstHeading() {
     return this.contents.debugElement.query(By.css('h1')).nativeElement;
   }
+
+  secondHeading() {
+    return this.contents.debugElement.query(By.css('h2')).nativeElement;
+  }
 }

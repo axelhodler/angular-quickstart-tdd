@@ -8,9 +8,6 @@ import {By}           from '@angular/platform-browser';
 
 import {AppComponentPageObject} from './app.component.pageobject'
 
-function querySecondHeading(fixture: ComponentFixture<AppComponent>) {
-  return fixture.debugElement.query(By.css('h2')).nativeElement;
-}
 describe('AppComponent', function () {
   let pageObject: AppComponentPageObject;
   let comp: AppComponent;
@@ -38,7 +35,7 @@ describe('AppComponent', function () {
 
   it('gives the hero a name', () => {
     expect(comp.hero.name).toBe('Windstorm');
-    expect(querySecondHeading(fixture).innerText).toBe('Windstorm details!');
+    expect(pageObject.secondHeading().innerText).toBe('Windstorm details!');
   });
 
   it('displays h2 after h1', () => {
@@ -46,20 +43,20 @@ describe('AppComponent', function () {
   });
 
   it('displays hero id and name', () => {
-    const heroIdElement = querySecondHeading(fixture).nextElementSibling;
+    const heroIdElement = pageObject.secondHeading().nextElementSibling;
     expect(heroIdElement.textContent).toContain('id:');
     expect(heroIdElement.lastChild.textContent).toBe('1');
   });
 
   it('can edit the heroes name', () => {
-    let heroIdElement = querySecondHeading(fixture).nextElementSibling;
+    let heroIdElement = pageObject.secondHeading().nextElementSibling;
     comp.hero.name = 'Stormwind';
     fixture.detectChanges();
     expect(heroIdElement.nextElementSibling.lastElementChild.outerHTML).toContain('Stormwind');
   });
 
   it('lists ten heroes with name and id', () => {
-    let heroList = querySecondHeading(fixture).nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling;
+    let heroList = pageObject.secondHeading().nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling;
     expect(heroList.childElementCount).toBe(10);
     expect(heroList.firstElementChild.textContent).toContain('11 Mr. Nice');
   });
