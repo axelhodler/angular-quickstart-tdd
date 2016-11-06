@@ -39,7 +39,7 @@ describe('AppComponent', function () {
   });
 
   it('displays h2 after h1', () => {
-    expect(pageObject.firstHeading().nextElementSibling.textContent).toBe('Windstorm details!');
+    expect(pageObject.firstHeading().nextElementSibling.firstElementChild.textContent).toBe('Windstorm details!');
   });
 
   it('displays hero id and name', () => {
@@ -59,6 +59,12 @@ describe('AppComponent', function () {
     let heroList = pageObject.heroList();
     expect(heroList.childElementCount).toBe(10);
     expect(heroList.firstElementChild.textContent).toContain('11 Mr. Nice');
+  });
+
+  it('displays hero details only if a hero is selected', () => {
+    comp.hero = null;
+    fixture.detectChanges();
+    expect(pageObject.secondHeading().innerText).toBe('My Heroes');
   });
 
   describe('Hero', () => {
