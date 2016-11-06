@@ -72,7 +72,7 @@ const HEROES: Hero[] = [
 export class AppComponent {
   heroes = HEROES;
   title = 'Tour of Heroes';
-  hero: Hero = {
+  selectedHero: Hero = {
     id: 1,
     name: 'Windstorm'
   };

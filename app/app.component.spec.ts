@@ -34,7 +34,7 @@ describe('AppComponent', function () {
   });
 
   it('gives the hero a name', () => {
-    expect(comp.hero.name).toBe('Windstorm');
+    expect(comp.selectedHero.name).toBe('Windstorm');
     expect(pageObject.secondHeading().innerText).toBe('Windstorm details!');
   });
 
@@ -50,7 +50,7 @@ describe('AppComponent', function () {
 
   it('can edit the heroes name', () => {
     let heroIdElement = pageObject.secondHeading().nextElementSibling;
-    comp.hero.name = 'Stormwind';
+    comp.selectedHero.name = 'Stormwind';
     fixture.detectChanges();
     expect(heroIdElement.nextElementSibling.lastElementChild.outerHTML).toContain('Stormwind');
   });
@@ -62,7 +62,7 @@ describe('AppComponent', function () {
   });
 
   it('displays hero details only if a hero is selected', () => {
-    comp.hero = null;
+    comp.selectedHero = null;
     fixture.detectChanges();
     expect(pageObject.secondHeading().innerText).toBe('My Heroes');
   });
