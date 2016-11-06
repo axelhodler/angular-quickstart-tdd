@@ -6,16 +6,13 @@ import {Hero} from './hero';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {By}           from '@angular/platform-browser';
 
+import {AppComponentPageObject} from './app.component.pageobject'
 
-function queryFirstHeading(fixture: ComponentFixture<AppComponent>) {
-  return fixture.debugElement.query(By.css('h1')).nativeElement;
-}
 function querySecondHeading(fixture: ComponentFixture<AppComponent>) {
   return fixture.debugElement.query(By.css('h2')).nativeElement;
 }
 describe('AppComponent', function () {
-  let firstHeading: any;
-  let secondHeading: any;
+  let pageObject: AppComponentPageObject;
   let comp: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
 
@@ -29,12 +26,13 @@ describe('AppComponent', function () {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);
+    pageObject = new AppComponentPageObject(fixture);
     comp = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('sets the title to Tour of Heroes', () => {
-    expect(queryFirstHeading(fixture).innerText).toMatch(/Tour of Heroes/i);
+    expect(pageObject.firstHeading().innerText).toMatch(/Tour of Heroes/i);
     expect(comp.title).toBe('Tour of Heroes');
   });
 
@@ -44,7 +42,7 @@ describe('AppComponent', function () {
   });
 
   it('displays h2 after h1', () => {
-    expect(queryFirstHeading(fixture).nextElementSibling.textContent).toBe('Windstorm details!');
+    expect(pageObject.firstHeading().nextElementSibling.textContent).toBe('Windstorm details!');
   });
 
   it('displays hero id and name', () => {
