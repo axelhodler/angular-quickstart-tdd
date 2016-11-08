@@ -19,7 +19,7 @@ export class AppComponentPageObject {
   }
 
   headingAfterFirstHeading() {
-    return this.firstHeading().nextElementSibling.firstElementChild.firstElementChild;
+    return this.contents.debugElement.query(By.css('#hero-detail-heading')).nativeElement;
   }
 
   firstHeroTextContent() {
