@@ -1,10 +1,10 @@
 /* tslint:disable:no-unused-variable */
 import {AppComponent} from './app.component';
+import {HeroDetailComponent} from './hero-detail.component';
 import {FormsModule}   from '@angular/forms';
 import {Hero} from './hero';
 
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {By}           from '@angular/platform-browser';
 
 import {AppComponentPageObject} from './app.component.pageobject'
 
@@ -15,7 +15,7 @@ describe('AppComponent', function () {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AppComponent],
+      declarations: [AppComponent, HeroDetailComponent],
       imports: [FormsModule]
     })
       .compileComponents();

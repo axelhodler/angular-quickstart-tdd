@@ -19,7 +19,7 @@ export class AppComponentPageObject {
   }
 
   headingAfterFirstHeading() {
-    return this.firstHeading().nextElementSibling.firstElementChild;
+    return this.firstHeading().nextElementSibling.firstElementChild.firstElementChild;
   }
 
   firstHeroTextContent() {
